@@ -1,0 +1,5 @@
+npm run dev:cms
+http://localhost:4321/admin
+
+
+Odśwież teraz http://localhost:4321/admin — z <base href="/admin/"> każde relatywne żądanie (w tym fetch('config.yml') wewnątrz Decap) będzie rozwiązywane jako /admin/config.yml zamiast /config.yml.

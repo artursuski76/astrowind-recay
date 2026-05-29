@@ -1,0 +1,307 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'RECAY – Wypożyczalnia samochodów Bielsko-Biała',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zadzwoń teraz',
+        href: 'tel:+48662294045',
+        icon: 'tabler:phone',
+      },
+      { text: 'Nasza oferta', href: '#oferta' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Flota samochodów RECAY Bielsko-Biała',
+    }}
+  >
+    <Fragment slot="title">
+      Wypożyczalnia samochodów<br />
+      <span class="text-accent dark:text-white">RECAY</span> Bielsko-Biała
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Kompleksowy wynajem pojazdów dla osób prywatnych i sektora transportowego.
+      </span>
+      Nowoczesne auta osobowe, dostawcze i naczepy – dostępne od ręki, bez zbędnych formalności.
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note
+    title="Lokalizacja:"
+    description="Mikołaja Reja 18/34, 43-300 Bielsko-Biała · tel. +48 662 294 045 · info@recay.pl"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="oferta"
+    tagline="Dlaczego RECAY?"
+    title="Korzyści płynące ze współpracy"
+    subtitle="Stawiamy na prostotę, rzetelność i dopasowanie oferty do Twoich potrzeb – niezależnie od tego, czy jesteś klientem indywidualnym czy firmą."
+    items={[
+      {
+        title: 'Minimum formalności, maksimum czasu',
+        description:
+          'Szanujemy Twój czas. Proces wynajmu skróciliśmy do niezbędnego minimum – dzięki sprawnej organizacji i jasnym umowom kluczyki odbierzesz w rekordowo krótkim czasie.',
+        icon: 'tabler:clock-check',
+      },
+      {
+        title: 'Wszechstronność bez kompromisów',
+        description:
+          'Ekonomiczne auto na miasto, furgonetka do przeprowadzki, a może zestaw z naczepą do transportu ciężkiego? Nasza flota jest na to gotowa i regularnie poddawana rygorystycznym przeglądom technicznym.',
+        icon: 'tabler:truck',
+      },
+      {
+        title: 'Transparentne koszty i konkurencyjne ceny',
+        description:
+          'Jako lokalny lider w Bielsku-Białej oferujemy przejrzysty system rozliczeń bez ukrytych opłat. Cennik opłacalny zarówno przy krótkich wynajmach, jak i długofalowej współpracy biznesowej.',
+        icon: 'tabler:receipt-2',
+      },
+      {
+        title: 'Bogata flota pojazdów',
+        description:
+          'Posiadamy szeroką gamę samochodów osobowych, dostawczych oraz specjalistycznych naczep. Każdy pojazd jest zadbany technicznie i gotowy do drogi.',
+        icon: 'tabler:car-garage',
+      },
+      {
+        title: 'Lokalne know-how',
+        description:
+          'Działamy w Bielsku-Białej i doskonale znamy lokalne potrzeby transportowe. Służymy radą przy doborze odpowiedniego pojazdu do Twojego zadania.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Elastyczne warunki wynajmu',
+        description:
+          'Wynajem krótko- i długoterminowy dopasowany do Twoich planów. Obsługujemy klientów indywidualnych, małe firmy i duże przedsiębiorstwa transportowe.',
+        icon: 'tabler:calendar-check',
+      },
+    ]}
+  />
+
+  <!-- Content Widget – Samochody osobowe *** -->
+
+  <Content
+    id="samochody-osobowe"
+    isReversed
+    tagline="Nasza oferta"
+    title="Samochody osobowe"
+    items={[
+      {
+        title: 'Kompaktowe auta miejskie',
+        description:
+          'Zwinne i ekonomiczne, idealne do szybkiego przemieszczania się po Bielsku-Białej i okolicach.',
+      },
+      {
+        title: 'Klasa kompakt i Golf',
+        description:
+          'Złoty środek między komfortem a funkcjonalnością. Dostępne z manualną i automatyczną skrzynią biegów.',
+      },
+      {
+        title: 'Limuzyny klasy średniej',
+        description:
+          'Reprezentacyjne i bogato wyposażone pojazdy, które doskonale wpisują się w potrzeby biznesowe oraz dalekie wyjazdy rodzinne.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Samochody osobowe RECAY',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Auta na każdą okazję
+      </h3>
+      Od ekonomicznego miejskiego hatchbacka po komfortową limuzynę – dobieramy pojazd idealnie dopasowany do Twojego wyjazdu.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget – Samochody dostawcze *** -->
+
+  <Content
+    id="samochody-dostawcze"
+    isAfterContent
+    tagline="Nasza oferta"
+    title="Samochody dostawcze"
+    items={[
+      {
+        title: 'Dostawcze z plandeką i windą',
+        description:
+          'Idealne do transportu paletowego i ciężkich ładunków. Winda załadowcza znacząco ułatwia i przyspiesza proces logistyczny.',
+      },
+      {
+        title: 'Dostawcze z plandeką (bez windy)',
+        description:
+          'Lekkie i pojemne, doskonałe do szybkich transportów, przeprowadzek i dostaw.',
+      },
+      {
+        title: 'Furgony i busy',
+        description:
+          'Elastyczne rozwiązania dla mniejszych ładunków i logistyki ostatniej mili.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Samochody dostawcze RECAY',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Transport bez ograniczeń
+      </h3>
+      Niezawodne pojazdy dostawcze gotowe do pracy – od małego furgonu po plandekę z windą hydrauliczną.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Jak wynająć samochód w RECAY?"
+    items={[
+      {
+        title: 'Krok 1: <span class="font-medium">Wybierz pojazd</span>',
+        description:
+          'Zadzwoń do nas pod numer +48 662 294 045 lub napisz na info@recay.pl. Doradzimy, który pojazd najlepiej odpowiada Twoim potrzebom i sprawdzimy dostępność.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Krok 2: <span class="font-medium">Podpisz umowę</span>',
+        description:
+          'Przyjedź do nas na ul. Mikołaja Reja 18/34 w Bielsku-Białej. Formalności ograniczone do minimum – potrzebujemy jedynie dowodu osobistego i prawa jazdy.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Krok 3: <span class="font-medium">Odbierz kluczyki</span>',
+        description:
+          'Po podpisaniu umowy przekazujemy Ci zadbany pojazd gotowy do drogi. Możesz od razu ruszać w trasę.',
+        icon: 'tabler:key',
+      },
+      {
+        title: 'Gotowe!',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+      alt: 'Odbiór samochodu z wypożyczalni',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Najczęściej zadawane pytania"
+    subtitle="Masz wątpliwości? Znajdź odpowiedź na najczęstsze pytania dotyczące wynajmu pojazdów w RECAY."
+    tagline="FAQ"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Jakie dokumenty są potrzebne do wynajmu?',
+        description:
+          'Do wynajmu samochodu osobowego wystarczy ważny dowód osobisty lub paszport oraz prawo jazdy odpowiedniej kategorii. W przypadku pojazdów dostawczych mogą być wymagane dodatkowe uprawnienia – skontaktuj się z nami, żeby dowiedzieć się więcej.',
+      },
+      {
+        title: 'Czy można wynająć samochód na jeden dzień?',
+        description:
+          'Tak, oferujemy wynajem zarówno krótkoterminowy (od jednego dnia), jak i długoterminowy. Cena uzależniona jest od wybranego pojazdu i czasu wynajmu – sprawdź nasz cennik lub zadzwoń po indywidualną wycenę.',
+      },
+      {
+        title: 'Czy w cenie wynajmu wliczone jest ubezpieczenie?',
+        description:
+          'Wszystkie nasze pojazdy posiadają obowiązkowe ubezpieczenie OC. Warunki ubezpieczenia AC oraz zakres odpowiedzialności za szkody zostają szczegółowo omówione przy podpisywaniu umowy.',
+      },
+      {
+        title: 'Gdzie znajduje się wypożyczalnia?',
+        description:
+          'Nasza siedziba mieści się przy ul. Mikołaja Reja 18/34, 43-300 Bielsko-Biała. Zapraszamy po wcześniejszym kontakcie telefonicznym: +48 662 294 045.',
+      },
+      {
+        title: 'Czy oferujecie wynajem długoterminowy dla firm?',
+        description:
+          'Tak, obsługujemy zarówno klientów indywidualnych, jak i firmy poszukujące pojazdów na dłuższy okres. Dla stałych klientów biznesowych mamy indywidualnie dopasowane warunki współpracy.',
+      },
+      {
+        title: 'Jakie pojazdy dostawcze macie w ofercie?',
+        description:
+          'Dysponujemy furgonami, busami oraz pojazdami z plandeką – zarówno z windą załadowczą, jak i bez. Flota jest regularnie serwisowana i dostępna od ręki. Skontaktuj się z nami, aby sprawdzić aktualną dostępność.',
+      },
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Lat doświadczenia', amount: '10+' },
+      { title: 'Pojazdów w flocie', amount: '30+' },
+      { title: 'Zadowolonych klientów', amount: '1500+' },
+      { title: 'Bielsko-Biała', amount: '#1' },
+    ]}
+  />
+
+  <!-- BlogLatestPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Aktualności i porady"
+    information="Sprawdź nasze najnowsze artykuły o transporcie, wynajmie pojazdów i bezpiecznej jeździe."
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zadzwoń: +48 662 294 045',
+        href: 'tel:+48662294045',
+        icon: 'tabler:phone',
+      },
+      {
+        text: 'Napisz do nas',
+        href: 'mailto:info@recay.pl',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Gotowy na wynajem?<br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap"> Skontaktuj się z nami</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Zadzwoń lub napisz – odpowiemy szybko i doradzimy najlepsze rozwiązanie dla Ciebie.<br class="hidden md:inline" />
+      Jesteśmy dostępni dla klientów indywidualnych i firm.
+    </Fragment>
+  </CallToAction>
+</Layout>
