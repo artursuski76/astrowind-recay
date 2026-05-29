@@ -1,4 +1,3 @@
-# Sample workflow for building and deploying an Astro site to GitHub Pages
 name: Deploy Astro site to Pages
 
 on:
@@ -17,6 +16,8 @@ concurrency:
 
 env:
   BUILD_PATH: "."
+  # Wymuszenie uruchamiania akcji w nowym środowisku Node.js 24 (zgodnie z wymogami GitHub z maja/czerwca 2026)
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -26,29 +27,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # KROK SPECJALNY DLA ASTROWIND: Instalacja pnpm przed Node.js
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20" # Bezpieczna wersja LTS dla większości paczek
-          cache: "pnpm"
+          node-version: "24" # Zaktualizowano do najnowszej wersji Node.js
+          cache: "npm"
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        # Używamy npm install z ignorowaniem konfliktów wersji w Astrowind
+        run: npm install --legacy-peer-deps
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Build with Astro
         run: |
-          pnpm astro build \
+          npx --no-install astro build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
