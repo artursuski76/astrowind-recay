@@ -39,6 +39,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  
+  // Ustawienia pod GitHub Pages dla artursuski76/astrowind-recay
+  site: 'https://artursuski76.github.io',
+  base: '/astrowind-recay',
 
   integrations: [
     sitemap(),
